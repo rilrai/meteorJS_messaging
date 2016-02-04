@@ -1,0 +1,46 @@
+<template name="dialogs">
+	<div class="container">
+		<div class="col-sm-2"></div>
+
+		<div class="col-sm-6">
+			<div>
+				<label>
+					{{fromTo}}
+				</label>
+			</div>
+			<div class="allMessages" style="text-align:left">
+				<select multiple id="select-messages">
+					{{#each messages}}
+							<option>{{this.sender}} : {{this.message}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<hr>
+			<div>
+				<textarea class="newMessage"></textarea>
+			</div>
+			<div>
+				<button class="btn btn-default" id="send-btn">Send</button>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div>
+				<label>
+					List of users
+				</label>
+			</div>
+			<div>
+				<select multiple class="form-control allUsers" id="user-selector">
+			    {{#each users}}
+							<option>{{this.username}}</option>
+					{{/each}}
+			  </select>
+			</div>
+			<div>
+				<button class="btn btn-default" id="select-user-btn">Select</button>
+			</div>
+		</div>
+
+	</div>
+</template>

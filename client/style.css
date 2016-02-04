@@ -1,0 +1,50 @@
+body {
+	margin-top: 90px;
+}
+
+textarea {
+	overflow: auto;
+}
+
+.jumbotron {
+	text-align: center;
+}
+
+.allMessages {
+	width: 90%;
+	height: 200px;
+	/*border: 1px;
+	border-style: solid;
+	border-colo*/r: rgb(169, 169, 169);
+}
+
+.newMessage {
+	width: 60%;
+	height: 100px;
+	max-height: 200px;
+}
+
+#select-messages{
+	width: 90%;
+	height: 200px;
+	white-space: pre-wrap;
+}
+
+.allUsers {
+	width: 80%;
+	height: 250px;
+}
+
+.fondBold {
+	font-style: bold;
+}
+
+#select-user-btn {
+	margin-top: 5px
+}
+
+.btn-navbar {
+	margin: 10px;
+}
+
+

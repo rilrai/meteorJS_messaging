@@ -1,0 +1,33 @@
+<template name="ApplicationLayout">
+  {{> yield "navbar"}}
+  {{> yield "main"}}
+  
+</template>
+
+
+<template name="welcome">
+	<div class="container">
+		<div class="jumbotron">
+			<h2>Welcome to Simple Messaging, {{username}}!</h2>
+			<p><a href="/dialogs" class="btn btn-info">Go to Dialogs</a></p>
+			<p>{{> loginButtons}}</p>
+		</div>
+	</div>
+</template>
+
+
+<template name="navbar">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container" style="text-align: center">
+			<a href="/"><button class="btn btn-navbar" style="display:inline-block">welcome page</button></a>
+			<button class="btn btn-navbar" style="display:inline-block">{{> loginButtons}}</button>
+		</div>
+	</nav>
+</template>
+
+
+<template name="messages">
+	<div class="container">
+		<h2>This is a dialog window</h2>
+	</div>
+</template>
