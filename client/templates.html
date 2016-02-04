@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h2>Welcome to Simple Messaging, {{username}}!</h2>
-			<p><a href="/dialogs" class="btn btn-info">Go to Dialogs</a></p>
+			<p><a href="/dialogs" class="btn btn-primary">Go to Dialogs</a></p>
 			<p>{{> loginButtons}}</p>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 			<a href="/reference"><button class="btn btn-default btn-small" style="display:inline-block padding-right: 10px">reference</button></a>
 			<div class="invisible"></div>
 			<label style="display:inline-block padding-left: 10px">currently logged as</label>
-			<button class="btn btn-navbar" style="display:inline-block">{{> loginButtons}}</button>
+			<button class="btn btn-default btn-navbar" style="display:inline-block">{{> loginButtons}}</button>
 		</div>
 	</nav>
 </template>
@@ -33,12 +33,12 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h3>This is a simple list of features</h3>
-			<ul>
-				<li>feature 1</li>
-				<li>feature 2</li>
-				<li>feature 3</li>
-			</ul>
-			
+			<hr>
+			{{#each ref}}
+				<p>
+					{{this.text}}
+				</p>
+			{{/each}}
 		</div>
 	</div>
 </template>

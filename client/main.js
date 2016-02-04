@@ -12,6 +12,12 @@ Template.welcome.helpers ({
   }
 });
 
+Template.reference.helpers ({
+  ref:function() {
+    return References.find().fetch();
+  }
+});
+
 Template.dialogs.helpers ({
   fromTo: function() {
     if (Meteor.user()&&Session.get('messagingTo')) {
@@ -42,15 +48,7 @@ Template.dialogs.helpers ({
     textArea[0].value = '';
     
     return messages;
-  },
-
-  // isUser: function() {
-  //   var sender = this.sender,
-  //       user = Meteor.user().username;
-
-  //   return sender == user;
-  // }
-
+  }
 });
 
 Template.dialogs.events ({
