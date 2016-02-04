@@ -17,23 +17,4 @@ Router.route('/dialogs', function () {
   });
 });
 
-// Router.route('/chat', function () {
-//   this.render('navbar', {
-//     to:"navbar"
-//   });
-//   this.render('chat', {
-//     to:"main"
-//   });
-// });
 
-Router.route('/dialog/:_id', function () {
-  this.render('navbar', {
-    to:"navbar"
-  });
-  this.render('dialog', {
-    to:"main", 
-    data:function(){
-      return Meteor.users.findOne({_id:this.params._id});
-    }
-  });
-});
