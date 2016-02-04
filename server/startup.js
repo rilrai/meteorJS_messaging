@@ -13,10 +13,10 @@ Meteor.startup(function(){
 		})
 	};
 
-	// if (!References.findOne({_id:'3'})) {
-	// 	References.insert({
-	// 		_id : '3',
-	// 		text : 'It took a bit more than 2 evenings.'
-	// 	})
-	// }
+	if (!References.findOne({_id:'3'})) {
+		References.insert({
+			_id : '3',
+			text : 'Try to overload the message box - it has a nice feature of scrolling to new messages. Making that happen was a pain...'
+		})
+	};
 });
