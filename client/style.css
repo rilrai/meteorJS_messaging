@@ -1,5 +1,6 @@
 body {
 	margin-top: 90px;
+	background-color: #B0C4DE; 
 }
 
 textarea {
@@ -45,6 +46,12 @@ textarea {
 
 .btn-navbar {
 	margin: 10px;
+}
+
+.invisible {
+	width: 10px;
+	color: #fff;
+	display: inline-block;
 }
 
 

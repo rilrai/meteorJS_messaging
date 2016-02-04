@@ -9,12 +9,29 @@ Router.route('/', function () {
 });
 
 Router.route('/dialogs', function () {
-  this.render('navbar', {
-    to:"navbar"
-  });
-  this.render('dialogs', {
-    to:"main"
-  });
+  if(Meteor.user()) {
+    this.render('navbar', {
+      to:"navbar"
+    });
+    this.render('dialogs', {
+      to:"main"
+    });
+  } else {
+    this.redirect('/');
+  }
+});
+
+Router.route('/reference', function () {
+  if(Meteor.user()) {
+    this.render('navbar', {
+      to:"navbar"
+    });
+    this.render('reference', {
+      to:"main"
+    });
+  } else {
+    this.redirect('/');
+  }
 });
 
 

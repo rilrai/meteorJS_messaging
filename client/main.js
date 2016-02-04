@@ -6,7 +6,6 @@ Template.welcome.helpers ({
   username:function() {
     if (Meteor.user()) {
       return Meteor.user().username;
-        //return Meteor.user().emails[0].address;
     } else {
       return "anonymous internet user";
     }
@@ -41,13 +40,16 @@ Template.dialogs.helpers ({
 
     messages.sort(compare);
     textArea[0].value = '';
-
-    // for (var i=0; i<messages.length; i++) {
-    //   textArea[0].value += messages[i].sender + ' : ' + messages[i].message + '\\n';
-    // };
     
     return messages;
-  }
+  },
+
+  // isUser: function() {
+  //   var sender = this.sender,
+  //       user = Meteor.user().username;
+
+  //   return sender == user;
+  // }
 
 });
 
@@ -119,6 +121,7 @@ function compare(a,b) {
     return 0;
 }
 
+// Scroll for select items
 function scrollIt(id) {
     document.getElementById(id).scrollTop = document.getElementById(id).scrollHeight;
 }

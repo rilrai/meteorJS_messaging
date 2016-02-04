@@ -19,15 +19,26 @@
 <template name="navbar">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container" style="text-align: center">
-			<a href="/"><button class="btn btn-navbar" style="display:inline-block">welcome page</button></a>
+			<a href="/"><button class="btn btn-primary btn-navbar" style="display:inline-block">welcome page</button></a>
+			<a href="/dialogs"><button class="btn btn-primary btn-navbar" style="display:inline-block">dialogs</button></a>
+			<a href="/reference"><button class="btn btn-default btn-small" style="display:inline-block padding-right: 10px">reference</button></a>
+			<div class="invisible"></div>
+			<label style="display:inline-block padding-left: 10px">currently logged as</label>
 			<button class="btn btn-navbar" style="display:inline-block">{{> loginButtons}}</button>
 		</div>
 	</nav>
 </template>
 
-
-<template name="messages">
+<template name="reference">
 	<div class="container">
-		<h2>This is a dialog window</h2>
+		<div class="jumbotron">
+			<h3>This is a simple list of features</h3>
+			<ul>
+				<li>feature 1</li>
+				<li>feature 2</li>
+				<li>feature 3</li>
+			</ul>
+			
+		</div>
 	</div>
 </template>
