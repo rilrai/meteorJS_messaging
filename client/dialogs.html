@@ -1,9 +1,9 @@
 <template name="dialogs">
 	<div class="container">
-		<div class="col-sm-2"></div>
+		<div class="col-sm-1"></div>
 
 		<div class="col-sm-6">
-			<div>
+			<div style="text-align: right; font-size: 200%">
 				<label>
 					{{fromTo}}
 				</label>
@@ -11,21 +11,25 @@
 			<div class="allMessages" style="text-align:left">
 				<select multiple id="select-messages">
 					{{#each messages}}
-							<option>{{this.sender}} : {{this.message}}</option>
+							<option>{{this.sender}} ({{time}}) : {{this.message}}</option>
 					{{/each}}
 				</select>
 			</div>
 			<hr>
-			<div>
+			<div style="text-align: right">
 				<textarea class="newMessage"></textarea>
 			</div>
-			<div>
-				<button class="btn btn-default" id="send-btn">Send</button>
+			<div style="text-align: right">
+				<button class="btn btn-primary" id="send-btn" style="width: 120px">send message</button>
 			</div>
 		</div>
 
+		<div class="col-sm-1">
+			<!-- white space =) -->
+		</div>
+
 		<div class="col-sm-4">
-			<div>
+			<div style="font-size: 150%">
 				<label>
 					List of users
 				</label>

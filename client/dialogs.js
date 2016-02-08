@@ -1,33 +1,13 @@
-Accounts.ui.config({
-	passwordSignupFields: "USERNAME_ONLY"
-});
-
-Template.welcome.helpers ({
-  username:function() {
-    if (Meteor.user()) {
-      return Meteor.user().username;
-    } else {
-      return "anonymous internet user";
-    }
-  }
-});
-
-Template.reference.helpers ({
-  ref:function() {
-    return References.find().fetch();
-  }
-});
-
 Template.dialogs.helpers ({
   fromTo: function() {
-    if (Meteor.user()&&Session.get('messagingTo')) {
+    if (Session.get('messagingTo')) {
       var from = Meteor.user().username,
           to = Session.get('messagingTo'),
           result = '' + from + ' to ' + to;
 
       return result;
     } else {
-      return "Please log in or choose a user to message with"
+      return "Please choose a user to message with";
     }
   },
 
@@ -48,6 +28,13 @@ Template.dialogs.helpers ({
     textArea[0].value = '';
     
     return messages;
+  },
+
+  time: function() {
+    var datetime = this.time,
+        result = moment(datetime).format('LTS');
+
+    return result;
   }
 });
 
@@ -61,8 +48,18 @@ Template.dialogs.events ({
           to = Session.get('messagingTo'),
           el = document.getElementsByClassName('newMessage'),
           text = el[0].value,
-          date = new Date(),
-          datetime = date.getTime();
+          datetime;
+
+      Meteor.call('getDate', function(err, response){
+        Session.set('date', response);
+        return
+      });
+
+      datetime = Session.get('date');
+      delete Session.keys['date'];
+      
+          // date = new Date(),
+          // datetime = date.getTime();
 
       Messages.insert({
         sender: from,
@@ -83,11 +80,22 @@ Template.dialogs.events ({
       e.stopPropagation();
 
       var from = Meteor.user().username,
-        to = Session.get('messagingTo'),
-        el = document.getElementsByClassName('newMessage'),
-        text = el[0].value,
-        date = new Date(),
-        datetime = date.getTime();
+          to = Session.get('messagingTo'),
+          el = document.getElementsByClassName('newMessage'),
+          text = el[0].value,
+          datetime;
+
+      Meteor.call('getDate', function(err, response){
+        Session.set('date', response);
+        return
+      });
+
+      datetime = Session.get('date');
+      delete Session.keys['date'];
+
+
+        // date = new Date(),
+        // datetime = date.getTime();
 
       Messages.insert({
         sender: from,
@@ -109,6 +117,7 @@ Template.dialogs.events ({
   },
 });
 
+
 // Comparator for messages. Sorts by datetime.
 function compare(a,b) {
   if (a.time < b.time)
@@ -123,5 +132,3 @@ function compare(a,b) {
 function scrollIt(id) {
     document.getElementById(id).scrollTop = document.getElementById(id).scrollHeight;
 }
-
-
